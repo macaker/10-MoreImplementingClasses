@@ -179,7 +179,7 @@ class CapitalT(object):
         self.h_rect = rg.Rectangle(hcorner1, hcorner2)
 
         vcorner1 = rg.Point((intersection_center.x - (letter_thickness/2)), (intersection_center.y - (letter_thickness/2)))
-        vcorner2 = rg.Point((intersection_center.x + (letter_thickness/2)), (intersection_center.y + (height - (width/2))))
+        vcorner2 = rg.Point((intersection_center.x + (letter_thickness/2)), (intersection_center.y + letter_thickness/2 + (height - (width/2))))
         self.v_rect = rg.Rectangle(vcorner1, vcorner2)
 
 
@@ -322,7 +322,11 @@ class CapitalT(object):
         # IMPORTANT RESTRICTION: You are NOT permitted to add any instance
         # variables beyond  h_rect  and  v_rect, at any point of this exercise.
         #######################################################################
-        return CapitalT(rg.Point(self.intersection_center.x, self.intersection_center.y), self.height, self.width, self.letter_thickness)
+        t1= CapitalT(rg.Point(self.intersection_center.x, self.intersection_center.y), self.height, self.width, self.letter_thickness)
+        t1.set_colors(self.v_rect.fill_color, self.h_rect.outline_color)
+        return t1
+
+
 
 
 
